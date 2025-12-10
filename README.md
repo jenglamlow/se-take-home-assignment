@@ -1,3 +1,42 @@
+## McDonald's Order Manager - Frontend Implementation
+
+### Live Demo
+🚀 **[View Live Application](https://jenglamlow.github.io/se-take-home-assignment/)**
+
+### Implementation Summary
+This is a **frontend implementation** using React + TypeScript + Vite that meets all requirements:
+
+- ✅ Normal & VIP order creation with unique incrementing IDs
+- ✅ VIP priority queue (VIP orders processed before normal orders)
+- ✅ Dynamic bot management (add/remove bots)
+- ✅ Real-time order processing with 10-second cook time
+- ✅ Visual progress indicators and countdown timers
+- ✅ Automatic bot-order assignment
+- ✅ In-memory state (no persistence)
+
+### Tech Stack
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite 7
+- **Styling**: Vanilla CSS
+- **Deployment**: GitHub Pages via GitHub Actions
+
+### Quick Start
+```bash
+# Install dependencies
+pnpm install
+
+# Run development server
+pnpm dev
+
+# Build for production
+pnpm build
+```
+
+### Documentation
+See [IMPLEMENTATION.md](./IMPLEMENTATION.md) for technical details and architecture explanation.
+
+---
+
 ## FeedMe Software Engineer Take Home Assignment
 Below is a take home assignment before the interview of the position. You are required to
 1. Understand the situation and use case. You may contact the interviewer for further clarification.

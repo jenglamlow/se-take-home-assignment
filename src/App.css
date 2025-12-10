@@ -1,0 +1,302 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #da291c;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.order-controls,
+.bot-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-normal {
+  background-color: #ffbc0d;
+  color: #292929;
+}
+
+.btn-normal:hover {
+  background-color: #e6a800;
+}
+
+.btn-vip {
+  background-color: #da291c;
+  color: white;
+}
+
+.btn-vip:hover {
+  background-color: #b8231a;
+}
+
+.btn-add-bot {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-add-bot:hover {
+  background-color: #219a52;
+}
+
+.btn-remove-bot {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-remove-bot:hover:not(:disabled) {
+  background-color: #c0392b;
+}
+
+.bot-count {
+  font-size: 14px;
+  color: #666;
+  margin-left: 10px;
+}
+
+/* Order Areas */
+.order-areas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .order-areas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.order-area {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 300px;
+}
+
+.pending-area {
+  border: 3px solid #ffbc0d;
+}
+
+.complete-area {
+  border: 3px solid #27ae60;
+}
+
+.order-area h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+.pending-area h2 {
+  color: #e6a800;
+}
+
+.complete-area h2 {
+  color: #27ae60;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+/* Order Card */
+.order-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.order-card.processing {
+  border-left: 4px solid #3498db;
+  animation: pulse 1.5s infinite;
+}
+
+.order-card.vip {
+  background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+}
+
+.order-card.complete {
+  opacity: 0.9;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+  }
+  50% {
+    box-shadow: 0 2px 16px rgba(52, 152, 219, 0.5);
+  }
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.order-type {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.order-type.vip {
+  background-color: #da291c;
+  color: white;
+}
+
+.order-type.normal {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.processing-info {
+  margin-top: 12px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+.bot-label {
+  font-size: 12px;
+  color: #3498db;
+  font-weight: 500;
+}
+
+/* Bot Status Section */
+.bot-status {
+  background-color: #2c3e50;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+}
+
+.bot-status h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bot-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.bot-card {
+  background-color: #34495e;
+  border-radius: 8px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+  transition: all 0.2s ease;
+}
+
+.bot-card.active {
+  border: 2px solid #2ecc71;
+  animation: working 1s infinite;
+}
+
+.bot-card.idle {
+  border: 2px solid #95a5a6;
+}
+
+@keyframes working {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.bot-id {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.bot-status-text {
+  font-size: 14px;
+  color: #2ecc71;
+}
+
+.bot-status-text.idle {
+  color: #95a5a6;
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  .bot-count {
+    color: #333;
+  }
+}
