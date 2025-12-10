@@ -7,7 +7,7 @@ A React + TypeScript frontend application simulating McDonald's automated order 
 
 ### Data Models
 ```typescript
-Order: { id, type: 'normal'|'vip', status: 'pending'|'processing'|'complete', name, botId? }
+Order: { id, type: 'normal'|'vip', status: 'pending'|'processing'|'complete', name, botId?, completedAt? }
 Bot: { id, orderId, startTime }
 ```
 
@@ -25,7 +25,11 @@ Bot: { id, orderId, startTime }
 **Order Lifecycle**
 1. Created → `pending`
 2. Bot picks up → `processing` (+ botId, startTime)
-3. After 10s → `complete` (botId cleared)
+3. After 10s → `complete` (botId cleared, completedAt timestamp set)
+
+**Display Sorting**
+- Pending area: VIP orders first, then normal orders (insertion order)
+- Complete area: Latest completed orders first (reverse chronological by completedAt)
 
 **Bot Removal**
 - Removes newest bot

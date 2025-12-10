@@ -10,6 +10,7 @@ interface Order {
   status: OrderStatus
   name: string
   botId?: number
+  completedAt?: number
 }
 
 interface Bot {
@@ -147,7 +148,7 @@ function App() {
             // Mark order as complete
             const orderIndex = newOrders.findIndex(o => o.id === bot.orderId)
             if (orderIndex !== -1) {
-              newOrders[orderIndex] = { ...newOrders[orderIndex], status: 'complete', botId: undefined }
+              newOrders[orderIndex] = { ...newOrders[orderIndex], status: 'complete', botId: undefined, completedAt: Date.now() }
               ordersUpdated = true
             }
             // Free up the bot
@@ -191,7 +192,9 @@ function App() {
   }, [])
 
   const pendingOrders = orders.filter(o => o.status === 'pending' || o.status === 'processing')
-  const completedOrders = orders.filter(o => o.status === 'complete')
+  const completedOrders = orders
+    .filter(o => o.status === 'complete')
+    .sort((a, b) => (b.completedAt || 0) - (a.completedAt || 0)) // Latest completed first
   const idleBots = bots.filter(b => b.orderId === null)
   const activeBots = bots.filter(b => b.orderId !== null)
 
